@@ -15,7 +15,6 @@ builder.Services.AddDbContext<BudgetContext>(options =>
 
 builder.Services.AddControllers();
 
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -39,12 +38,17 @@ if (app.Environment.IsDevelopment())
 
 
 
+app.UseRouting();
+
 
 app.UseCors("AllowAll");
 
-
 app.UseAuthorization();
 
-app.MapControllers();
+// ? MUSI BYÆ po routing
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 
 app.Run();
