@@ -38,7 +38,10 @@ if (app.Environment.IsDevelopment())
 }
 
 
+
+
 app.UseCors("AllowAll");
+
 
 app.UseAuthorization();
 
